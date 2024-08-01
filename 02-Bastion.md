@@ -115,3 +115,57 @@ Le filtrage et la surveillance du trafic peuvent introduire des latences et affe
 ## Conclusion
 
 Les bastions jouent un rôle crucial dans la protection des réseaux informatiques en isolant les services accessibles depuis l'extérieur et en filtrant les communications pour éliminer les menaces potentielles. Bien que leur configuration puisse être complexe, les avantages en termes de sécurité et de protection des données en font un élément essentiel des architectures de réseau modernes. En comprenant les principes de base et les techniques de configuration des bastions, les administrateurs réseau peuvent renforcer la sécurité de leurs systèmes et protéger efficacement leurs infrastructures contre les cyberattaques.
+
+# Annexe :
+
+## La Zone Démilitarisée (DMZ) en Informatique
+
+### Qu'est-ce qu'une DMZ ?
+
+En informatique, une Zone Démilitarisée (DMZ) est une sous-région du réseau qui est exposée à l'Internet tout en étant isolée du réseau interne sécurisé. La DMZ sert de tampon entre le réseau externe non fiable (comme Internet) et le réseau interne sécurisé de l'entreprise.
+
+### Analogie avec la Vie Réelle
+
+Imaginez un immeuble de bureaux hautement sécurisé. L'immeuble a une zone d'accueil publique (la DMZ) où les visiteurs peuvent entrer, poser des questions ou attendre. Cependant, pour accéder aux bureaux internes (le réseau interne sécurisé), les visiteurs doivent passer par des contrôles de sécurité supplémentaires. La zone d'accueil publique permet à l'immeuble d'interagir avec le public tout en protégeant les bureaux internes des intrusions.
+
+### Fonctionnement d'une DMZ
+
+#### 1. Séparation des Réseaux
+
+La DMZ se situe entre le réseau externe (Internet) et le réseau interne de l'entreprise. Elle est souvent protégée par deux pare-feux :
+
+- **Pare-feu Externe** : Sépare Internet de la DMZ et filtre le trafic entrant.
+- **Pare-feu Interne** : Sépare la DMZ du réseau interne sécurisé et filtre le trafic sortant de la DMZ vers le réseau interne.
+
+#### 2. Accès Contrôlé
+
+Les services et serveurs placés dans la DMZ sont accessibles depuis Internet mais ont des accès restreints au réseau interne. Par exemple, un serveur web dans la DMZ peut recevoir des requêtes HTTP/S depuis Internet, mais il ne peut pas accéder directement aux bases de données internes sans passer par des contrôles de sécurité stricts.
+
+### Utilisation Pratique d'une DMZ
+
+#### 1. Hébergement de Services Exposés
+
+- **Serveurs Web** : Les serveurs web sont souvent placés dans la DMZ pour permettre aux utilisateurs d'accéder aux sites web de l'entreprise sans compromettre la sécurité du réseau interne.
+- **Serveurs de Messagerie** : Les serveurs de messagerie peuvent également être placés dans la DMZ pour gérer les courriers électroniques entrants et sortants.
+
+#### 2. Filtrage et Sécurité
+
+- **Proxys et Passerelles de Sécurité** : Utilisés pour filtrer le trafic et protéger les services hébergés dans la DMZ contre les attaques.
+- **Systèmes de Détection d'Intrusion (IDS)** : Surveillent le trafic dans la DMZ pour détecter toute activité suspecte.
+
+### Exemple Concret
+
+Supposons une entreprise qui a besoin d'un site web public et d'un serveur de messagerie. Voici comment une DMZ pourrait être mise en place :
+
+1. **Serveur Web** : Placé dans la DMZ, accessible depuis Internet pour les utilisateurs qui visitent le site web.
+2. **Serveur de Messagerie** : Placé dans la DMZ, gère les courriels entrants et sortants sans exposer le réseau interne.
+3. **Pare-feu Externe** : Filtre le trafic entrant de l'Internet vers les serveurs dans la DMZ.
+4. **Pare-feu Interne** : Filtre le trafic de la DMZ vers le réseau interne, autorisant uniquement les connexions nécessaires.
+
+### Sécurité Renforcée
+
+Les deux pare-feux assurent que même si un attaquant parvient à compromettre un serveur dans la DMZ, il ne pourra pas facilement accéder au réseau interne sécurisé de l'entreprise. De plus, des systèmes de détection d'intrusion et des proxys peuvent être utilisés pour ajouter des couches supplémentaires de sécurité.
+
+## Conclusion
+
+La DMZ en informatique est une zone de sécurité intermédiaire qui permet d'exposer des services au public tout en protégeant le réseau interne d'une entreprise. En comprenant et en mettant en œuvre une DMZ correctement, les entreprises peuvent offrir des services accessibles depuis Internet tout en minimisant les risques de sécurité pour leur infrastructure interne.
